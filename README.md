@@ -9,9 +9,21 @@ tested against worked examples before publication.
 
 ## Run it
 
+The suite reads the tool pages from the [toolsnook](https://github.com/asadjanjua89/toolsnook)
+site repo. Clone both side by side:
+
 ```bash
-npm install jsdom
-node tests.js
+git clone https://github.com/asadjanjua89/toolsnook.git
+git clone https://github.com/asadjanjua89/toolsnook-tests.git
+cd toolsnook-tests
+npm install
+npm test
+```
+
+Or point it anywhere:
+
+```bash
+TOOLS_DIR=/path/to/toolsnook/tools node tests.js
 ```
 
 Expected output: `41 passed / 0 failed / 41 total`

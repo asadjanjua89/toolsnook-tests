@@ -1,7 +1,19 @@
 const fs = require('fs');
 const { JSDOM } = require('jsdom');
 
-const DIR = '/mnt/user-data/outputs/';
+// Where the tool pages live. Override with:  TOOLS_DIR=/path/to/tools node tests.js
+// Default assumes the toolsnook site repo sits alongside this one:
+//   ~/code/toolsnook/tools/   and   ~/code/toolsnook-tests/
+const path = require('path');
+const DIR = (process.env.TOOLS_DIR || path.join(__dirname, '..', 'toolsnook', 'tools'))
+  .replace(/\/?$/, '/');
+
+if (!fs.existsSync(DIR)) {
+  console.error(`\nCannot find the tool pages at: ${DIR}`);
+  console.error('Clone https://github.com/asadjanjua89/toolsnook next to this repo,');
+  console.error('or run:  TOOLS_DIR=/path/to/toolsnook/tools node tests.js\n');
+  process.exit(2);
+}
 
 function loadTool(file) {
   const html = fs.readFileSync(DIR + file, 'utf8');

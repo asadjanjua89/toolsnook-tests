@@ -1,0 +1,19 @@
+{
+  "name": "toolsnook-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Verification suite for the calculators on toolsnook.com. Runs each page's shipped JavaScript in a DOM and checks it against worked examples.",
+  "homepage": "https://www.toolsnook.com/methodology.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asadjanjua89/toolsnook-tests"
+  },
+  "author": "Asad Janjua",
+  "license": "MIT",
+  "scripts": {
+    "test": "node tests.js"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1"
+  }
+}
